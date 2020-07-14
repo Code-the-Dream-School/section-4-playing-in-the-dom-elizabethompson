@@ -47,17 +47,21 @@ a2.appendChild(select2)
 a2.appendChild(removeBtn2)
 
 //------------------------Question 3 ---------------------------
-//Now lets mix some maths and programming. In the function below (calculate_sphere) write a JavaScript program to calculate the volume and surface area of a sphere.
-//take the radius from the input value element with the 'id=radius' in the index.html file
-//And display the results in the elements with the 'id = volume' and 'id = area' respectively
-//hint: the volumen of a sphere is ((4/3) × π × r^3) and the surface area is (4 × π × r^2)
+// Now lets mix some maths and programming. In the function below (calculate_sphere) write a JavaScript program to calculate the volume and surface area of a sphere.
+// take the radius from the input value element with the 'id=radius' in the index.html file
+// And display the results in the elements with the 'id = volume' and 'id = area' respectively
+// hint: the volumen of a sphere is ((4/3) × π × r^3) and the surface area is (4 × π × r^2)
 
+const calculateSphere = (event) => {
+  event.preventDefault()
+  const { radius, volume, area } = event.target
 
-const calculate_sphere = () =>{
-
+  area.value = 4 * Math.PI * Math.pow(radius.value, 2)
+  volume.value = (4 / 3) * Math.PI * Math.pow(radius.value, 3)
  }
 
-window.onload = document.getElementById('MyForm').onsubmit = calculate_sphere; // this execute the volume_sphere function each time the calculate (submit) button is clicked
+const form3 = document.getElementById('MyForm')
+form3.addEventListener('submit', calculateSphere)
 
 
 
