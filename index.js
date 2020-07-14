@@ -58,16 +58,30 @@ const calculateSphere = (event) => {
 
   area.value = 4 * Math.PI * Math.pow(radius.value, 2)
   volume.value = (4 / 3) * Math.PI * Math.pow(radius.value, 3)
- }
+}
 
 const form3 = document.getElementById('MyForm')
 form3.addEventListener('submit', calculateSphere)
 
-
-
-
 //------------------------Question 4 ---------------------------
-//Now in this exercise we want you to create 3 buttons, each with a click action that will hide the respective question's answer above. So if you click the "Hide Question 1" button it will hide from the DOM the answer to your first exercise. If you click it again it will show the answer. 
+// Now in this exercise we want you to create 3 buttons, each with a click action that will hide the respective question's answer above.
+// So if you click the "Hide Question 1" button it will hide from the DOM the answer to your first exercise.
+// If you click it again it will show the answer.
 
+const toggleAnswer = (id) => {
+  const element = document.getElementById(id)
+  element.style.display = element.style.display === 'none' ? 'block' : 'none'
+}
 
-//resolve // QUESTION 4 here
+const a4 = document.getElementById(answers[3])
+let tmpButton
+
+for (i = 0; i < answers.length - 1; i++) {
+  tmpButton = document.createElement('button')
+  tmpButton.innerText = `Toggle ${answers[i]}`
+  tmpButton.value = answers[i]
+  tmpButton.addEventListener('click', (event) =>
+    toggleAnswer(event.target.value)
+  )
+  a4.appendChild(tmpButton)
+}
