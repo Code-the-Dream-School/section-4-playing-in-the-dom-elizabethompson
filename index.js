@@ -1,14 +1,19 @@
+const answers = ['a-1', 'a-2', 'a-3', 'a-4']
+
 //------------------------Question 1 ---------------------------
-//Is time to create things in the DOM!!. We want you to create a new 'div' Element and append it as a child of the element that has the 'id = a-1' (the element is in index.html file)
+// Is time to create things in the DOM!!. We want you to create a new 'div' Element and append it as a child of the element that has the 'id = a-1' (the element is in index.html file)
 // all right our new element needs style. For that, assign to the new element the className 'square'!. Each time the user clicks on the new element it has to respond changing the displayed text 'x' to 'o'
 
+const a1 = document.getElementById(answers[0])
+const div1 = document.createElement('div')
 
+div1.classList += 'square'
+div1.addEventListener('click', (event) => {
+  const element = event.target
+  div1.innerText = element.innerText === 'X' ? 'O' : 'X'
+})
 
-
-//resolve // QUESTION 1 here
-
-
-
+a1.appendChild(div1)
 
 //------------------------Question 2 ---------------------------
 //Write a JavaScript program to remove items from a dropdown list.
