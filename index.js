@@ -16,22 +16,35 @@ div1.addEventListener('click', (event) => {
 a1.appendChild(div1)
 
 //------------------------Question 2 ---------------------------
-//Write a JavaScript program to remove items from a dropdown list.
-//In order to create the list we are providing you with the array bellow, those items are the ones you need to add to the dropdown list as the select options
-//you also need to create a button that makes the remove action of the element selected
+// Write a JavaScript program to remove items from a dropdown list.
+// In order to create the list we are providing you with the array bellow, those items are the ones you need to add to the dropdown list as the select options
+// you also need to create a button that makes the remove action of the element selected
 // append the new list as a child of the element with the 'id = a-2'
 // append the button as a child of the element with the 'id = a-2'
-const colors = [ 'red' , 'white', 'black' , 'green' , 'orange'];
 
+const colors = ['red', 'white', 'black', 'green', 'orange']
 
+const a2 = document.getElementById(answers[1])
+const select2 = document.createElement('select')
+let tmpOption
 
+for (color of colors) {
+  tmpOption = document.createElement('option')
+  tmpOption.value = color
+  tmpOption.innerText = color
+  select2.appendChild(tmpOption)
+}
 
-//resolve // QUESTION 2 here
+const removeBtn2 = document.createElement('button')
+removeBtn2.innerText = 'Remove'
+removeBtn2.addEventListener('click', (event) => {
+  const btn = event.target
+  const select = btn.previousSibling
+  select.remove(select.selectedIndex)
+})
 
-
-
-
-
+a2.appendChild(select2)
+a2.appendChild(removeBtn2)
 
 //------------------------Question 3 ---------------------------
 //Now lets mix some maths and programming. In the function below (calculate_sphere) write a JavaScript program to calculate the volume and surface area of a sphere.
